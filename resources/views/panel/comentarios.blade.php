@@ -4,13 +4,15 @@
 
 @section('main')
 
+
+<section class="container">
+<h2 class="titulo">Listado de comentarios.</h2>
 @if(Session::has('error'))
-	<div class="error">{{ Session::get('error') }}</div>
+	<div class="info">{{ Session::get('error') }}</div>
 @endif
 @if(Session::has('message'))
-	<div class="error">{{ Session::get('message') }}</div>
+	<div class="info">{{ Session::get('message') }}</div>
 @endif
-<h2 class="titulo">Listado de comentarios.</h2>
 <table>
 	<thead>
 		<tr>
@@ -18,7 +20,7 @@
 		<th>Usuario</th>
 		<th>Comentario</th>
 		<th>Fecha</th>
-		<th>Eliminar</th>
+		<th></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -34,11 +36,12 @@
 		<form action="{{ route('eliminarcomentario', ['id' => $comentario->id]) }}" method="post">
             @csrf
             @method('DELETE')
-			<input class="btns extrabtn" type="submit" value="Eliminar">
+			<input class="blue-btn" type="submit" value="Eliminar">
     	</form>
     </td>
     @endif
 	@endforeach
   </tbody>
 </table>
+</section>
 @endsection

@@ -8,70 +8,77 @@
 @section('title', "Crear Nueva Silla")
 
 @section('main')
-<section class="form-body">
+<section class="container form-body">
 
 <div class="box">
 <h1>Nuevo producto</h1>
-<form action="{{ route('nuevasilla') }}" method="post" enctype="multipart/form-data">
-    @csrf
-    <div>
+<form class="w50" action="{{ route('nuevasilla') }}" method="post" enctype="multipart/form-data">
+	@csrf
+
+    <div class="label-input">
 		<label for="nombre">Nombre</label>
-		<input class="email" type="text" name="nombre" id="nombre"  value="{{ old('nombre') }}">
+		<input class="input-type <?php if($errors->has('nombre')) echo 'input-has-error'?>" type="text" name="nombre" id="nombre"  value="{{ old('nombre') }}">
 		@if($errors->has('nombre'))
 		<div class="error">{{ $errors->first('nombre') }}</div>
 		@endif
 	</div>
-    <div>
+    <div class="label-input">
 		<label for="id_categoria">Categoria</label>
-		<select class="email" id="id_categoria" name="id_categoria">
+		<select class="input-type" id="id_categoria" name="id_categoria">
 			@foreach($categorias as $categoria)
 				<option value="{{ $categoria->id_categoria }}">{{ $categoria->categoria }}</option>
 			@endforeach
 		</select>
 		@if($errors->has('id_categoria'))
-		<div>{{ $errors->first('id_categoria') }}</div>
+		<div class="error">{{ $errors->first('id_categoria') }}</div>
 		@endif
 	</div>
-    <div>
+    <div class="label-input">
 		<label for="alto">Alto</label>
-		<input class="email" type="number" name="alto" id="alto"  value="{{ old('alto') }}">
+		<input class="input-type <?php if($errors->has('alto')) echo 'input-has-error'?>" type="number" name="alto" id="alto"  value="{{ old('alto') }}">
 		@if($errors->has('alto'))
-		<div>{{ $errors->first('alto') }}</div>
+		<div class="error">{{ $errors->first('alto') }}</div>
 		@endif
 	</div>
-    <div>
+    <div class="label-input">
 		<label for="ancho">Ancho</label>
-		<input class="email" type="number" name="ancho" id="ancho"  value="{{ old('ancho') }}">
+		<input class="input-type <?php if($errors->has('ancho')) echo 'input-has-error'?>" type="number" name="ancho" id="ancho"  value="{{ old('ancho') }}">
 		@if($errors->has('ancho'))
-		<div>{{ $errors->first('ancho') }}</div>
+		<div class="error">{{ $errors->first('ancho') }}</div>
 		@endif
 	</div>
-    <div>
+    <div class="label-input">
 		<label for="profundidad">Profundidad</label>
-		<input class="email" type="number" name="profundidad" id="profundidad"  value="{{ old('profundidad') }}">
+		<input class="input-type <?php if($errors->has('profundidad')) echo 'input-has-error'?>" type="number" name="profundidad" id="profundidad"  value="{{ old('profundidad') }}">
 		@if($errors->has('profundidad'))
-		<div>{{ $errors->first('profundidad') }}</div>
+		<div class="error">{{ $errors->first('profundidad') }}</div>
 		@endif
 	</div>
-    <div>
+    <div class="label-input">
 		<label for="precio">Precio</label>
-		<input class="email" type="number" name="precio" id="precio" value="{{ old('precio') }}">
+		<input class="input-type <?php if($errors->has('precio')) echo 'input-has-error'?>" type="number" name="precio" id="precio" value="{{ old('precio') }}">
 		@if($errors->has('precio'))
-		<div>{{ $errors->first('precio') }}</div>
+		<div class="error">{{ $errors->first('precio') }}</div>
 		@endif
 	</div>
-	<div>
+	<div class="label-input">
 		<label for="foto">Foto</label>
-		<input class="email"  type="file" name="foto" id="foto" value="{{ old('foto') }}">
-	</div>
-    <div>
-		<label for="descripcion">Descripción</label>
-		<textarea class="email textareacomm" name="descripcion" id="descripcion">{{ old('descripcion') }}</textarea>
-        @if($errors->has('descripcion'))
-		<div>{{ $errors->first('descripcion') }}</div>
+		<input class="input-type <?php if($errors->has('foto')) echo 'input-has-error'?>"  type="file" name="foto" id="foto" value="{{ old('foto') }}">
+		@if($errors->has('foto'))
+		<div class="error">{{ $errors->first('foto') }}</div>
 		@endif
 	</div>
-    <input class="btn" type="submit" value="Guardar">
+    <div class="label-input">
+		<label for="descripcion">Descripción</label>
+		<textarea class="input-type textareacomm <?php if($errors->has('descripcion')) echo 'input-has-error'?>" name="descripcion" id="descripcion">{{ old('descripcion') }}</textarea>
+        @if($errors->has('descripcion'))
+		<div class="error">{{ $errors->first('descripcion') }}</div>
+		@endif
+	</div>
+	<div class="label-input">
+		<input class="blue-btn" type="submit" value="Guardar" />
+	</div>
+    
 
 </form>
 </div>

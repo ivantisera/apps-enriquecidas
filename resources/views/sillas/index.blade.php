@@ -5,6 +5,7 @@
 @section('main')
 <div id="productos">
     <section id="contenido">
+        <h1>Todas las sillas</h1>
         <div>
             <ul>
             @foreach($sillas as $silla)
@@ -14,8 +15,13 @@
                 </div>
                 
                 <h3><?=$silla->nombre?></h3>
-                <p class="item-precio"> Precio: $<?=$silla->precio?></p>
-                <a class="item-btnagregar" href="{{ route('sillas.detalle', ['id' => $silla->id]) }}">Ver detalle</a>
+                <div class="silla-detail-item">
+                    <p class="price-detail"> Precio: $<?=$silla->precio?></p>
+                    <div class="">
+                        <a class="blue-btn" href="{{ route('sillas.detalle', ['id' => $silla->id]) }}">Ver detalle</a>
+                    </div>
+                </div>
+               
             </li>
             @endforeach
             </ul>

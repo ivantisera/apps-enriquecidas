@@ -65,19 +65,18 @@ class PanelController extends Controller
 
         if ($request->hasFile('foto')) {
             $foto = $request->file('foto');
-
             $nombreFoto = time() . "." . $foto->extension();
-
             $foto->move(public_path('/img'), $nombreFoto);
-
             $formData['foto'] = $nombreFoto;
         }
-
+        else{
+            $formData['foto'] = "default.jpg";
+        }
         $silla = $this->sillas_repo->create($formData);
 
         return redirect()
             ->route('panel')
-            ->with('message', 'La silla <b>' . $formData['nombre'] . "</b> se agregó con éxito");
+            ->with('message', 'La silla ' . $formData['nombre'] . " se agregó con éxito");
     }
 
     /**

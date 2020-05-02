@@ -50,7 +50,7 @@ class Silla extends Model
 	 ];
 	 
 	 /**
-	  * Sobreescritura de la función messages para la muestra de mensajes customizados. ESTO NO ANDA ACA CHEQUEAR!!
+	  * Sobreescritura de la función messages para la muestra de mensajes customizados. 
 	  *
 	  * @return array
 	  */

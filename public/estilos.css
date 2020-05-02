@@ -5,15 +5,80 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'Roboto-Light';
+    src: url('fuentes/Roboto-Light.ttf')  format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-Medium';
+    src: url('fuentes/Roboto-Medium.ttf')  format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-Regular';
+    src: url('fuentes/Roboto-Regular.ttf')  format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto-Bold';
+    src: url('fuentes/Roboto-Bold.ttf')  format('truetype');
+}
+
+
 
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+.r-bold{
+    font-family: Roboto-Bold;
 }
 
-body {
-    width: 1280px;
-    margin: auto;
+.w50{
+    width:50%;
+}
+
+.w60{
+    width:60%;
+}
+
+.mgt-7{
+    margin-top:7px;
+}
+
+.mgt-25{
+    margin-top: 25px;
+}
+
+.mgt-50{
+    margin-top: 50px!important;    
+}
+
+.float-left{
+    float: left;
+}
+
+.float-right{
+    float: right;
+}
+
+main{
+    min-height: calc(100vh - 312px);
+}
+
+
+main h1, main h2{
+    font-family: 'Open Sans', sans-serif;
+    margin: 32px 0;
+    border-bottom: 1px solid lightgrey;
+    padding-bottom: 20px;
+}
+
+.container{
+    width: 1024px;
+    margin:auto;
 }
 
 #elegi {
@@ -21,15 +86,17 @@ body {
 }
 
 #home>div>p {
-    font: 25px unicornflakesmedium;
+    font-size: 25px;
     text-align: center;
+    margin: 40px auto;
 }
 
 #titulo {
     width: 252px;
-    height: 146px;
+    height: 138px;
+    margin-top:-16px;
     text-indent: -4000px;
-    background: url(img/logo.jpg) no-repeat;
+    background: url(img/logo.png) no-repeat;
     display: inline-block;
 }
 .titulo {
@@ -46,8 +113,8 @@ body {
 header {
     position: relative;
     border-bottom: 2px solid grey;
-    padding-bottom: 40px;
-    margin-bottom: 40px;
+    padding-bottom: 16px;
+    background: black;
 }
 
 header>div {
@@ -58,11 +125,11 @@ header>div {
 }
 
 header>ul {
-    width: 900px;
+    width: 700px;
     display: flex;
     justify-content: space-around;
     position: absolute;
-    top: 40px;
+    top: 65px;
     right: 0px;
 }
 
@@ -74,25 +141,31 @@ header>ul>li {
 header>ul>li {
     text-decoration: none;
     font: 18px unicornflakesmedium;
-    color: black;
+    color: grey;
 }
 
 header>ul>li>a {
     text-decoration: none;
-    font: 26px unicornflakesmedium;
-    color: black;
+    font: 20px unicornflakesmedium;
+    color: white;
 }
 
 header>ul>li>a:hover {
     color: grey;
-    font-size: 30px;
+    font-size: 22px;
 }
 
-#home {
+
+
+#home .main-img, #home img{
+    display:block;
+    margin:auto;
     position: relative;
+    border: none;
+    width:1280px;
 }
 
-#home>p {
+.main-img>p {
     position: absolute;
     top: 600px;
     right: 20px;
@@ -104,17 +177,15 @@ header>ul>li>a:hover {
     border-top: 2px solid grey;
 }
 
-#home>div>p {
-    margin: 40px auto;
-}
 
 footer>p {
-    border-top: 2px solid grey;
-    border-bottom: 2px solid grey;
     padding: 40px;
     margin: 40px auto;
-    font: 20px Tahoma;
+    margin-bottom: 0;
+    font: 16px Roboto-Light;
     text-align: center;
+    color: white;
+    background: black;
 }
 
 #contenido>div>ul {
@@ -126,13 +197,16 @@ footer>p {
 #contenido>div>ul>li {
     width: 30%;
     vertical-align: top;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     list-style: none;
 }
 
 #contenido>div>ul>li>h3 {
     font: bold 30px unicornflakesmedium;
     text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .img-dad {
@@ -149,7 +223,7 @@ footer>p {
     display: block;
     height: 100px;
     margin: 15px 0;
-    font: 1em Tahoma;
+    font: 1em roboto-light;
 }
 
 #contenido>div>ul>li>.item-precio {
@@ -196,6 +270,12 @@ footer>p {
     background-color: #fefefe;
     margin: auto;
     padding: 0;
+
+}
+
+#productos{
+    width: 1024px;
+    margin:auto;
 }
 
 @-webkit-keyframes animatetop {
@@ -239,14 +319,15 @@ footer>p {
 }
 
 .desc-content h1 {
-    font: bold 30px unicornflakesmedium;
+    font: bold 30px Roboto-Regular;
     text-align: right;
     margin: 50px 0;
+    padding:0;
 }
 
 .desc-content ul li {
     list-style: none;
-    font: 1em Tahoma;
+    font: 1em roboto-light;
     margin-bottom: 40px;
     display: block;
     text-align: right;
@@ -257,10 +338,14 @@ footer>p {
 }
 
 .desc-content p {
-    font: 1em Tahoma;
+    font: 1em roboto-light;
     margin-bottom: 50px;
     display: block;
     text-align: right;
+}
+
+.mgb-75{
+    margin-bottom: 75px;
 }
 
 .comentarios h1 {
@@ -269,16 +354,14 @@ footer>p {
 }
 
 .textareacomm {
-    width: 300px;
-    height: 80px;
-    border: 2px dotted grey;
     resize: none;
+    vertical-align: middle;
 }
 
-.comentarios label {
-    display: block;
-    font: bold 22px unicornflakesmedium;
+.comment-edit{
+    height: 200px;
 }
+
 
 .comentarios .comment {
     margin-bottom: 10px;
@@ -286,20 +369,19 @@ footer>p {
 }
 
 .comentarios .user {
-    font: bold 16px Arial;
-    font-weight: bold;
+    font: 14px Roboto-Light;
     display: block;
     color: grey;
     padding: 10px 2px;
 }
 
 .comentarios .comentario {
-    font: bold 16px Tahoma;
+    font: 16px Roboto-Bold;
     display: block;
-    color: black;
+    color: #2980b9;
     padding: 20px;
-    border-bottom: 2px solid grey;
     border-left: 2px solid grey;
+    background: #2980b93d;
 }
 
 .btn-guardar {
@@ -367,6 +449,10 @@ footer>p {
     cursor: pointer;
 }
 
+#contenido>div>ul>li{
+    border-bottom: 2px solid #2980b9;
+}
+
 #contenido>div>ul>li img:hover {
     transform: scale3d(1.05, 1.05, 1.05);
 }
@@ -404,20 +490,38 @@ footer>p {
 }
 
 table {
+    margin-top:125px;
     width: 100%;
 }
 
 table td,
 table th {
 	padding:10px;
-	font-family: 'Open Sans', sans-serif;
 }
 
 table th {
-	font: 20px unicornflakesmedium;
-    font-size: 30px;
-    font-weight: bold;
+    font: 15px Roboto-bold;
+    text-align: left
 }
+
+table td{
+    font: 15px Roboto-light;
+}
+table {
+    border-collapse: collapse;
+  }
+  tr{
+    border-bottom: 1px solid #2980b9;
+  }
+
+
+/* tr:nth-child(even) {background: #2980b973;}
+tr:nth-child(odd) {background: #FFF} */
+th:nth-child(1), td:nth-child(1){ padding-left: 0;     font-family: roboto-bold;
+    width: 15%;}
+td:nth-child(8) {background: white}
+td:last-child {background: white; text-align:right; padding-right:0}
+
 
 table img {
     width: 100%;
@@ -467,15 +571,7 @@ table img {
     font: 20px unicornflakesmedium;
 }
 
-.form-body {
-    font-family: 'Open Sans', sans-serif;
 
-    margin: 0 auto 0 auto;
-    width: 100%;
-    text-align: center;
-	margin: 20px 0px 20px 0px;
-
-}
 
 .form-body p {
     font-size: 12px;
@@ -483,31 +579,52 @@ table img {
     color: black;
 }
 
+.form-body .subtitle{
+    font: 16px Roboto-Light;
+    margin-bottom: 40px;
+}
+
 .form-body h1 {
     font-size: 1.5em;
 	color: #525252;
-	
+	text-align: left;
 }
 
-.form-body .box {
-    background: white;
-    width: 400px;
-    border-radius: 6px;
-    margin: 0 auto 0 auto;
-    padding: 0px 0px 70px 0px;
-    border: #2980b9 4px solid;
-}
 
-.form-body .email {
-    background: #ecf0f1;
-    border: #ccc 1px solid;
-    border-bottom: #ccc 2px solid;
+
+@media (max-width: 600px) {
+    .form-body .box {
+      width: 100%
+    }
+  }
+
+
+.form-body .label-input{
+    width: 100%;
+    margin-top: 10px;
+    text-align: right;
+}
+.form-body .label-input label{
+    display: inline-block;
+    width: 25%;
+    text-align: left;
+    font-family: Roboto-bold;
+    color: darkgray;
+    vertical-align: middle;
+} 
+
+.form-body .input-type {
+    display: inline-block;
+    width: 74%;
+    background: #ecf0f18a;
+    border: none;
+    border-bottom: #ccc 1px solid;
     padding: 8px;
-    width: 250px;
-    color: #AAAAAA;
+    color: rgb(80, 48, 48);
     margin-top: 10px;
     font-size: 1em;
-    border-radius: 4px;
+    border-radius: 0;
+    font-family: Roboto-Light;
 }
 
 .form-body .password {
@@ -515,29 +632,39 @@ table img {
     background: #ecf0f1;
     border: #ccc 1px solid;
     padding: 8px;
-    width: 250px;
+    width: 300px;
     font-size: 1em;
 }
 
-.form-body .btn {
-    background: black;
-    width: 125px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    color: white;
-    border-radius: 4px;
-    border: #27ae60 1px solid;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    float: left;
-    margin-left: 16px;
-    font-weight: 800;
-    font-size: 0.8em;
+.white-btn{
+    max-width: 165px;
+    padding: 16px 32px;
+    background: white;
+    color:#2980b9;
+    border: none;
+    font: 14px Roboto-bold;
+    display:inline-block;
+    text-decoration: none;
 }
 
-.form-body .btn:hover {
-	color:black;
-	background: white;
+.blue-btn {
+    padding: 16px 32px;
+    font-size: 14px;
+    background: #2980b9;
+    color: white;
+    border: none;
+    font-family: Roboto-bold;
+    display:inline-block;
+    text-decoration: none;
+}
+
+.blue-btn:hover {
+    background: #1464a5 radial-gradient(circle,transparent 1%,#1464a5 1%) center/15000%;
+    cursor: pointer;
+}
+
+.white-btn:hover{
+    cursor: pointer;
 }
 
 .form-body #btn2 {
@@ -556,24 +683,29 @@ table img {
     font-size: 0.8em;
 }
 
-.form-body #btn2:hover {
-    background: #3594D2;
+
+
+.input-has-error{
+    border-bottom: 1px solid red!important;
+    background-color: #e8173c2e!important;
 }
 
 .error{
-	padding: 20px;
-	border: 1px solid red;
 	color:red;
 	font-size: 0.8em;
-	margin: 12px;
+    font-family: Roboto-Light;
+    width: 300px;
+    margin-left: 41%;
 }
 
 .info{
 	padding: 20px;
-	border: 1px solid orange;
-	color:orange;
-	font-size: 0.8em;
-	margin: 12px;
+	/* //border: 1px solid rgb(244, 102, 8); */
+    background:rgba(72, 14, 15);
+    color:white;
+	font-size: 1em;
+    font-family: Roboto-regular; 
+    margin-bottom: 25px;
 }
 
 .btns {
@@ -603,4 +735,27 @@ table img {
 	display:block;
 	text-align: center;
 	padding-top: 20px;
+}
+
+.silla-detail-item{
+   display:flex;
+   justify-content: space-between;
+   margin:20px 0;
+   border: 2px solid #2980b9;
+}
+
+.silla-detail-item .price-detail{
+    display:table-cell;
+    padding: 16px 0;
+    background: white;
+    color:#2980b9;
+    border: none;
+    font: 14px Roboto-bold;
+    display:inline-block;
+    text-decoration: none;
+    margin:auto;
+}
+
+.silla-detail-item a{
+   
 }

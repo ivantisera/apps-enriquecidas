@@ -7,7 +7,7 @@
 @section('title', "Ver Silla")
 
 @section('main')
-<section>
+<section class="container">
 <article class="product-content">
     <div class="product-body">
         <div class="image-content">
@@ -25,33 +25,37 @@
                     <li>Precio: <span>$<?=$silla->precio?></span></li>
                 </ul>
             </div>
-            <a class="btn-agregar" href="<?=url("listasillas");?>">Volver al listado</a>
+            <a class="blue-btn float-right" href="<?=url("listasillas");?>">Volver al listado</a>
     </div>
 
     </div>
 
     </article>
     @if(Auth::check())
-    <section class="comentarios">
+    <div>
         <h1>Comentarios</h1>
-        <form action="{{ route('agregarcomentario', ['id_producto' => $silla->id, 'id_usuario' => Auth::user()->id_usuario ]) }}" method="post" enctype="multipart/form-data">
+        <form class="form-body w50 mgb-75" action="{{ route('agregarcomentario', ['id_producto' => $silla->id, 'id_usuario' => Auth::user()->id_usuario ]) }}" method="post" enctype="multipart/form-data">
             @csrf
-            <div>
+            <div class="label-input">
 		        <label for="comentario">Agregá tu comentario:</label>
-		        <textarea class="textareacomm" name="comentario" id="comentario"></textarea>
+		        <textarea class="input-type textareacomm <?php if($errors->has('comentario')) echo 'input-has-error'?>" name="comentario" id="comentario"></textarea>
                     @if($errors->has('comentario'))
-		            <div>{{ $errors->first('comentario') }}</div>
-		            @endif
+		            <div class="error">{{ $errors->first('comentario') }}</div>
+                    @endif
+                    <input class="blue-btn mgt-25 float-right" type="submit" value="Guardar">
 	        </div>
-            <input class="btn-guardar" type="submit" value="      Guardar        ">
+            
         </form>
-        @foreach($silla->comentarios as $comentario )
-        <article class="comment">
-            <span class="user">{{$comentario->usuario->email}} dijo:</span> 
-            <span class="comentario">{{$comentario->comentario}}</span>
-        </article>
-       @endforeach
-    </section>
+        <section class="comentarios">       
+            @foreach($silla->comentarios as $comentario )
+            <article class="comment mgt-25">
+                <span class="user">{{$comentario->usuario->email}} dijo:</span> 
+                <span class="comentario">{{$comentario->comentario}}</span>
+            </article>
+            @endforeach
+        </section>
+ 
+    </div>
     @endif
 
 
