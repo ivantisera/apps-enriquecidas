@@ -101,7 +101,7 @@ class PanelController extends Controller
      */
     public function guardaredicionsilla(Request $request, $id)
     {
-        $request->validate(Silla::$rules);
+        $request->validate(Silla::$rules, Silla::messages());
 
         $formData = $request->except(['_token', '_method']);
 

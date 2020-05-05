@@ -40,12 +40,12 @@ class Silla extends Model
 
 	 public static $rules = [
 	 	'nombre' => 'required|min:5',
-	 	'alto' => 'required|numeric', 
-	 	'ancho' => 'required|numeric',
-	 	'profundidad' => 'required|numeric',
+	 	'alto' => 'required|numeric|max:3000', 
+	 	'ancho' => 'required|numeric|max:3000',
+	 	'profundidad' => 'required|numeric|max:3000',
 	 	'descripcion' => 'required',
 	 	'foto' => 'image|dimensions:width=500,height=700',
-	 	'precio' => 'required|numeric',
+	 	'precio' => 'required|numeric|max:500000',
 	 	'id_categoria' => 'required'
 	 ];
 	 
@@ -61,15 +61,19 @@ class Silla extends Model
 			 'nombre.min' => 'El nombre de la silla debe contener al menos 5 caracteres',
 			 'alto.required'  => 'Debe informar el alto del producto.',
 			 'alto.numeric'  => 'El alto debe ser un valor numérico.',
+			 'alto.max'  => 'El alto debe ser 3000 o menos.',
 			 'ancho.required'  => 'Debe informar el ancho del producto.',
 			 'ancho.numeric'  => 'El ancho debe ser un valor numérico.',
+			 'ancho.max'  => 'El ancho debe ser 3000 o menos.',
 			 'profundidad.required'  => 'Debe informar el valor de la profundidad del producto.',
 			 'profundidad.numeric'  => 'La profundidad debe ser un valor numérico.',
+			 'profundidad.max'  => 'La profundidad debe ser un valor menor a 3000.',
 			 'descripcion.required' => 'Debe informar la descripción del producto',
 			 'foto.image' => 'El formato del archivo de foto solo puede ser jpeg, png, bmp, gif o svg ',
 			 'foto.dimensions' => 'Dimensión admitida de imagen: 500x700px',
 			 'precio.required' => 'Debe informar un precio',
 			 'precio.numeric' => 'El valor del precio debe ser numérico',
+			 'precio.max'  => 'El precio debe ser un valor menor a $500.000.',
 			 'id_categoria' => 'Seleccione una categoría',
 		 ];
 	 }
@@ -79,7 +83,8 @@ class Silla extends Model
 		return $this->belongsTo(Categoria::class, 'id_categoria', 'id_categoria');
 	}
 
-	public function comentarios(){
+	public function comentarios()
+	{
 		return $this->hasMany(Comentarios::class, 'id_producto', 'id');
 	}
 

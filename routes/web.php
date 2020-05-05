@@ -116,12 +116,4 @@ Route::group(
             'as' => 'eliminarcomentario',
             'uses' => 'PanelComentariosController@eliminarcomentario'
         ]);
-        
-
-        
-
-        //  Route::get('users', [
-        //     'as' => 'users',
-        //     'uses' => 'PanelController@usersindex',
-        // ]);
     });
